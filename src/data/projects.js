@@ -85,9 +85,9 @@ export const projects = [
 
     title: "Object Retrieval using NLP",
 
-    image: "/projects/object-retrieval.png",
+    image: objectRetrieval,
 
-    category: objectRetrieval,
+    category: "objectRetrieval",
 
     duration: "2023",
 
