@@ -11,16 +11,16 @@ import profile from "../../assets/profile.png";
 
 const stats = [
   {
-    number: "2 Years",
-    label: "Professional Experience",
+    number: "2 Yrs",
+    label: "Industry Experience",
   },
   {
-    number: "10+",
-    label: "Projects",
+    number: "800",
+    label: "External X-rays Validated",
   },
   {
-    number: "15+",
-    label: "Technologies",
+    number: "9 / 9",
+    label: "Plates Read on 4K Video",
   },
 ];
 
@@ -37,7 +37,7 @@ const socialLinks = [
   },
   {
     icon: <FaEnvelope />,
-    href: "mailto:your-email@example.com",
+    href: "mailto:shubham17997@gmail.com",
     label: "Email",
   },
 ];
@@ -57,14 +57,14 @@ export default function Hero() {
           initial={{ opacity: 0, x: -60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full lg:w-[55%] pr-12"
+          className="w-full lg:w-[55%] lg:pr-12"
         >
           {/* Badge */}
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-slate-900/50 px-5 py-2 backdrop-blur-xl">
             <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-cyan-400"></span>
 
             <span className="text-sm font-medium text-cyan-300">
-              Available for Opportunities
+              Open to Data Science & ML roles
             </span>
           </div>
 
@@ -72,18 +72,41 @@ export default function Hero() {
             Hello, I'm
           </p>
 
-          <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-tight whitespace-nowrap">
+          <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-tight sm:whitespace-nowrap">
               Shubham <span className="text-cyan-400">Pandey</span>
           </h1>
 
           <h2 className="mt-8 text-2xl font-semibold text-slate-300 md:text-3xl">
-            Data Scientist • Machine Learning Engineer • AI Developer
+            Data Scientist • Machine Learning Engineer
           </h2>
 
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-400">
-            Building intelligent AI solutions using Machine Learning, Deep Learning, NLP, and Computer Vision. 
-            Passionate about transforming data into scalable applications that solve real-world business problems.
+          <p className="mt-8 max-w-2xl text-xl font-semibold leading-8 text-white">
+            I build ML systems — and check whether they{" "}
+            <span className="text-cyan-400">really work.</span>
           </p>
+
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-400">
+            I audited a 0.998-AUC tuberculosis model and proved, on 800 X-rays
+            from two other hospitals, that it had learned dataset shortcuts.
+            I rebuilt a number-plate recognition pipeline after finding that
+            half its data were duplicates. Backed by 2 years of Python, SQL and
+            API development in fintech.
+          </p>
+
+          {/* Stats (mobile / tablet) */}
+          <div className="mt-8 grid grid-cols-3 gap-3 lg:hidden">
+            {stats.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-2xl border border-cyan-400/20 bg-slate-900/70 p-3 text-center backdrop-blur-xl"
+              >
+                <p className="text-xl font-bold text-cyan-400">{item.number}</p>
+                <p className="mt-1 text-[11px] leading-4 text-slate-400">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
 
           {/* Buttons */}
           <div className="mt-12 flex flex-wrap gap-5">
@@ -106,6 +129,13 @@ export default function Hero() {
 
               Resume
             </a>
+
+            <a
+              href="#contact"
+              className="flex items-center gap-3 rounded-full border border-slate-700 bg-slate-900/60 px-7 py-4 font-semibold text-slate-200 backdrop-blur-xl transition duration-300 hover:border-cyan-300 hover:text-white"
+            >
+              Contact Me
+            </a>
           </div>
 
           {/* Social */}
@@ -114,9 +144,10 @@ export default function Hero() {
               <a
                 key={item.label}
                 href={item.href}
-                target="_blank"
+                target={item.label === "Email" ? undefined : "_blank"}
                 rel="noopener noreferrer"
                 aria-label={item.label}
+                title={item.label}
                 className="flex h-14 w-14 items-center justify-center rounded-full border border-slate-700 bg-slate-900/60 text-2xl text-slate-300 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-cyan-400 hover:text-cyan-400"
               >
                 {item.icon}
@@ -167,13 +198,18 @@ export default function Hero() {
             }}
             className="absolute left-14 bottom-14 rounded-2xl border border-cyan-400/20 bg-slate-900/80 px-6 py-4 backdrop-blur-xl shadow-xl z-20"
           >
-            <p className="text-xs uppercase tracking-widest text-slate-400">
-              Current Focus
-            </p>
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-amber-400" />
+              <p className="text-xs uppercase tracking-widest text-slate-400">
+                Currently Building
+              </p>
+            </div>
 
             <h4 className="mt-2 font-semibold text-cyan-300">
-              GenAI • LLMs • Data Science
+              Healthcare RAG + LLM Evaluation
             </h4>
+
+            <p className="mt-1 text-xs text-amber-300">In progress</p>
           </motion.div>
 
           {/* Floating Stats */}
@@ -183,9 +219,9 @@ export default function Hero() {
                 key={item.label}
                 className="w-36 rounded-2xl border border-cyan-400/20 bg-slate-900/80 p-4 text-center backdrop-blur-xl shadow-lg"
               >
-                <h3 className="text-3xl font-bold text-cyan-400">
+                <p className="text-2xl font-bold text-cyan-400">
                   {item.number}
-                </h3>
+                </p>
 
                 <p className="mt-1 text-xs text-slate-400">
                   {item.label}

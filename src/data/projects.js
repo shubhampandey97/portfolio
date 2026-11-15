@@ -3,155 +3,163 @@ import anpr from "../assets/projects/anpr.png";
 import objectRetrieval from "../assets/projects/object-retrieval.png";
 import deliveryPrediction from "../assets/projects/delivery-time.png";
 
+// status: "Completed" | "In progress"
+// results: the numbers / findings shown in the "Key results" box
 export const projects = [
   {
     id: 1,
-    title: "Tuberculosis Detection using Deep Learning",
-
+    title: "Tuberculosis Detection — Model Audit & External Validation",
     image: tuberculosis,
-
     category: "Healthcare AI",
-
-    duration: "2025",
+    duration: "2025 – 2026",
+    status: "Completed",
 
     description:
-      "Developed a deep learning-based tuberculosis detection system using chest X-ray images with transfer learning and explainable AI techniques.",
+      "Took a chest X-ray TB classifier that scored 0.998 AUC and asked whether it really looks at the lungs. Fixed invalid evaluation, then ran a pre-registered external test on 800 X-rays from two other hospitals and showed the model had learned dataset shortcuts.",
+
+    results: [
+      "Internal test AUC 0.998 → external AUC ≈ 0.67 (Shenzhen 662 + Montgomery 138 X-rays)",
+      "Image metadata alone (e.g. file size) predicts the label with AUC 0.92 — a data-source shortcut",
+      "Models still score AUC > 0.9 with the lungs hidden; Grad-CAM puts less attention on real lungs than chance",
+      "Pre-registered shortcut-removal retrain: preprocessing cannot fix a shortcut when source = label",
+    ],
 
     technologies: [
-      "Python",
       "TensorFlow",
-      "CNN",
-      "VGG16",
       "ResNet50",
       "EfficientNetB0",
-      "OpenCV",
       "Grad-CAM",
+      "Bootstrap CIs",
+      "Calibration",
+      "Pytest (87 tests)",
+      "GitHub Actions",
       "Streamlit",
     ],
 
-    highlights: [
-      "Transfer Learning",
-      "Medical Image Classification",
-      "Explainable AI",
-      "Interactive Streamlit App",
-    ],
-
     github: "https://github.com/shubhampandey97/tuberculosis-detection-v2",
-
     demo: "",
-
-    featured: true,
   },
 
   {
     id: 2,
-
-    title: "Automatic Number Plate Recognition (ANPR)",
-
+    title: "ANPR & Traffic Monitoring — Leakage Audit and Rebuild",
     image: anpr,
-
     category: "Computer Vision",
-
-    duration: "2025",
+    duration: "2025 – 2026",
+    status: "Completed",
 
     description:
-      "Built an AI-powered Automatic Number Plate Recognition system capable of detecting, tracking and recognizing vehicle number plates from images, videos and live webcam streams.",
+      "Audited a number-plate recognition system reported at 98.5% mAP. Found heavy data leakage, rebuilt the dataset split and retrained, measured plate reading for the first time, and rebuilt the whole pipeline: detection → tracking → OCR → per-track voting.",
 
-    technologies: [
-      "Python",
-      "YOLOv8",
-      "EasyOCR",
-      "ByteTrack",
-      "OpenCV",
-      "Computer Vision",
+    results: [
+      "49% of images were duplicate copies; 83–86% of val/test had a near-duplicate in training",
+      "Scene-grouped, leakage-free split → honest test mAP50 0.74 (Number_plate 0.85)",
+      "OCR: original EasyOCR read 0 plates correctly → plate-trained OCR + format check: 67–71% precision",
+      "4K traffic clip: 9 / 9 plates logged correctly; fixed a bug that re-created the tracker every frame",
     ],
 
-    highlights: [
-      "Real-time Detection",
-      "Object Tracking",
-      "OCR Pipeline",
-      "Live Webcam Support",
+    technologies: [
+      "YOLOv8",
+      "ByteTrack",
+      "fast-plate-ocr",
+      "OpenCV",
+      "PyTorch",
+      "Pytest (64 tests)",
+      "GitHub Actions",
+      "Streamlit",
     ],
 
     github: "https://github.com/shubhampandey97/number-plate-vehicle-detection",
-
     demo: "",
-
-    featured: true,
   },
 
   {
     id: 3,
-
-    title: "Object Retrieval using NLP",
-
-    image: objectRetrieval,
-
-    category: "objectRetrieval",
-
-    duration: "2023",
+    title: "Delivery Time Prediction — End-to-End ML Pipeline",
+    image: deliveryPrediction,
+    category: "Machine Learning",
+    duration: "2025",
+    status: "Completed",
 
     description:
-      "Developed a CNN-LSTM visual grounding model to localize image regions using natural language descriptions.",
+      "Predicts Amazon delivery times from order, distance and timing data. Built as a reproducible pipeline with feature engineering, model comparison, tuning, experiment tracking and explainability.",
+
+    results: [
+      "XGBoost + GridSearchCV: test RMSE ≈ 22.3, stable 5-fold CV (22.3 ± 0.18)",
+      "Compared Linear Regression, Random Forest, Gradient Boosting and XGBoost",
+      "Haversine distance, preparation-time and time-of-day features; IQR outlier handling",
+      "MLflow experiment tracking, SHAP explanations, Streamlit app",
+    ],
 
     technologies: [
-      "Python",
-      "PyTorch",
-      "CNN",
-      "LSTM",
-      "NLP",
-      "Computer Vision",
+      "Scikit-learn",
+      "XGBoost",
+      "Pipelines",
+      "MLflow",
+      "SHAP",
       "Streamlit",
     ],
 
-    highlights: [
-      "Visual Grounding",
-      "Phrase Encoding",
-      "Region Ranking",
-      "Deep Learning",
-    ],
-
-    github: "https://github.com/shubhampandey97/npl-object-retrieval",
-
+    github: "https://github.com/shubhampandey97/amazon-delivery-prediction",
     demo: "",
-
-    featured: true,
   },
 
   {
     id: 4,
-
-    title: "Delivery Time Prediction",
-
-    image: deliveryPrediction,
-
-    category: "Machine Learning",
-
-    duration: "2025",
+    title: "Natural Language Object Retrieval",
+    image: objectRetrieval,
+    category: "Vision + Language",
+    duration: "2023 · M.Sc. project",
+    status: "Completed",
 
     description:
-      "Developed an end-to-end machine learning pipeline for predicting delivery times using historical logistics data.",
+      "M.Sc. project at BHU: a PyTorch re-implementation of the CNN-LSTM model from \"Natural Language Object Retrieval\" (CVPR 2016) — find the image region that matches a phrase like \"the man on the left\".",
+
+    results: [
+      "VGG16 region features + LSTM phrase encoder for region ranking on ReferIt",
+      "Selective Search region proposals, Streamlit demo",
+      "Now revisiting it: proper ranking loss, P@1 evaluation and a comparison with modern open-vocabulary detectors",
+    ],
+
+    technologies: [
+      "PyTorch",
+      "VGG16",
+      "LSTM",
+      "OpenCV",
+      "Streamlit",
+    ],
+
+    github: "https://github.com/shubhampandey97/npl-object-retrieval",
+    demo: "",
+  },
+
+  {
+    id: 5,
+    title: "Healthcare RAG with Evaluation",
+    image: null,
+    category: "Generative AI",
+    duration: "2026",
+    status: "In progress",
+
+    description:
+      "A question-answering assistant over WHO immunisation guidelines and AI-in-medical-device guidance — built with the same rigour as my vision projects: every answer must cite its source, and the system is measured, not just demoed.",
+
+    results: [
+      "Chunking + embeddings + vector store with hybrid search and a reranker",
+      "Answers with citations; refuses when the answer is not in the sources",
+      "Evaluation harness: faithfulness, answer relevance, context recall, paraphrase robustness",
+    ],
 
     technologies: [
       "Python",
-      "Scikit-learn",
-      "MLflow",
-      "SHAP",
-      "Streamlit",
-      "Regression",
+      "LLMs",
+      "Embeddings",
+      "FAISS / Chroma",
+      "Reranking",
+      "RAGAS",
     ],
 
-    highlights: [
-      "Feature Engineering",
-      "Hyperparameter Tuning",
-      "Experiment Tracking",
-      "SHAP Explainability",
-    ],
-
-    github: "https://github.com/shubhampandey97/amazon-delivery-prediction",
-
+    github: "",
     demo: "",
-
-    featured: true,
   },
 ];

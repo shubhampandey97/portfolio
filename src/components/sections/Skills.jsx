@@ -25,8 +25,8 @@ export default function Skills() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-400">
-            Technologies I use to build Machine Learning, Deep Learning,
-            Computer Vision, NLP, Backend Systems and Data Analytics solutions.
+            Tools I have used in real projects — plus what I'm building with
+            right now, marked as in progress.
           </p>
 
           <div className="mx-auto mt-8 h-1 w-24 rounded-full bg-cyan-400"></div>
@@ -44,12 +44,25 @@ export default function Skills() {
                 delay: index * 0.1,
               }}
               viewport={{ once: true }}
-              className="h-full rounded-3xl border border-white/10 bg-slate-900/50 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-cyan-400 hover:shadow-[0_0_45px_rgba(34,211,238,0.20)]"
+              className={`h-full rounded-3xl border bg-slate-900/50 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-cyan-400 hover:shadow-[0_0_45px_rgba(34,211,238,0.20)] ${
+                category.inProgress
+                  ? "border-dashed border-amber-400/40"
+                  : "border-white/10"
+              }`}
             >
               {/* Category */}
-              <h3 className="mb-6 text-3xl font-bold leading-tight text-cyan-400">
-                {category.title}
-              </h3>
+              <div className="mb-6 flex flex-wrap items-center gap-3">
+                <h3 className="text-2xl font-bold leading-tight text-cyan-400">
+                  {category.title}
+                </h3>
+
+                {category.inProgress && (
+                  <span className="flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-400/10 px-3 py-1 text-xs font-semibold text-amber-300">
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-400" />
+                    Currently building
+                  </span>
+                )}
+              </div>
 
               {/* Skill Chips */}
               <div className="flex flex-wrap gap-2">

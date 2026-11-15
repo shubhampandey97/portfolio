@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import {
-  FaBrain,
+  FaSearch,
+  FaEye,
   FaDatabase,
-  FaChartLine,
   FaRobot,
   FaGraduationCap,
   FaBriefcase,
@@ -10,28 +10,29 @@ import {
 
 const highlights = [
   {
-    icon: <FaBrain />,
-    title: "Artificial Intelligence",
+    icon: <FaSearch />,
+    title: "Model Evaluation & Auditing",
     description:
-      "Building intelligent systems using Machine Learning, Deep Learning, NLP, Computer Vision and Generative AI.",
+      "External validation, confidence intervals, calibration and leakage checks — finding out whether a high score is real before anyone relies on it.",
+  },
+  {
+    icon: <FaEye />,
+    title: "Computer Vision",
+    description:
+      "Detection, tracking, OCR and medical image classification with YOLOv8, ByteTrack, TensorFlow and PyTorch — shipped as tested pipelines and apps.",
   },
   {
     icon: <FaDatabase />,
-    title: "Data Science",
+    title: "Data Science & Backend",
     description:
-      "Transforming raw data into actionable insights through Python, SQL, statistics and predictive modeling.",
-  },
-  {
-    icon: <FaChartLine />,
-    title: "Analytics",
-    description:
-      "Creating interactive dashboards and automating business reports with Power BI and SQL.",
+      "Python, SQL, FastAPI and Django in production; reporting automation and dashboards with Oracle, PostgreSQL and Power BI.",
   },
   {
     icon: <FaRobot />,
     title: "Generative AI",
+    badge: "In progress",
     description:
-      "Exploring LLMs, RAG systems, AI Assistants and modern AI applications for real-world problems.",
+      "Building a healthcare RAG system with source citations and an evaluation harness for faithfulness and relevance.",
   },
 ];
 
@@ -55,8 +56,8 @@ export default function About() {
           </p>
 
           <h2 className="text-5xl font-black text-white">
-            Passionate About
-            <span className="text-cyan-400"> Data & AI</span>
+            Building ML You Can
+            <span className="text-cyan-400"> Trust</span>
           </h2>
 
           <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-cyan-400"></div>
@@ -78,15 +79,22 @@ export default function About() {
               </h3>
 
               <p className="mb-6 leading-8 text-slate-300">
-                I'm <span className="font-semibold text-cyan-400"> Shubham Pandey</span>, a <span className="font-semibold text-cyan-400">Machine Learning Engineer and Data Scientist</span> passionate about 
-                building intelligent systems that solve real-world problems. I specialize in Machine Learning, Deep Learning, NLP, 
-                  Computer Vision, and Data Analytics developing end-to-end AI solutions with Python, SQL, 
-                    TensorFlow, PyTorch, FastAPI, and AWS.
+                I'm <span className="font-semibold text-cyan-400">Shubham Pandey</span>, a{" "}
+                <span className="font-semibold text-cyan-400">Data Scientist and Machine Learning Engineer</span>{" "}
+                with an M.Sc. in Computational Science (Data Science) from Banaras Hindu University
+                and two years of building Python backends and reporting systems in fintech.
+              </p>
+
+              <p className="mb-6 leading-8 text-slate-300">
+                What I care about most is whether a model <span className="text-white">actually works</span>.
+                In my projects I pre-register external tests, hunt for data leakage and shortcut learning,
+                and rebuild the pipeline when the honest numbers come out lower — then ship it with tests,
+                CI and a working app.
               </p>
 
               <p className="leading-8 text-slate-300">
-                I enjoy transforming complex data into scalable AI applications that create meaningful business impact 
-                and continuously expanding my expertise in modern AI technologies.
+                Right now I'm bringing the same rigour to LLMs: a healthcare RAG system where every
+                answer cites its source and quality is measured, not assumed.
               </p>
             </div>
 
@@ -101,7 +109,7 @@ export default function About() {
 
                   <div>
                     <h4 className="text-xl font-semibold text-white">
-                      Master's Degree
+                      M.Sc. (Master's Degree)
                     </h4>
 
                     <p className="text-slate-400">
@@ -111,7 +119,10 @@ export default function About() {
                       (Data Science Specialization)
                     </p>
                     <p className="text-slate-400">
-                      Banaras Hindu University
+                      Banaras Hindu University · 2023
+                    </p>
+                    <p className="mt-2 text-sm text-slate-500">
+                      B.Tech, Computer Science & Engineering — SHUATS, Prayagraj · 2021
                     </p>
                   </div>
                 </div>
@@ -163,6 +174,12 @@ export default function About() {
               <h3 className="mb-4 text-xl font-bold text-white">
                 {item.title}
               </h3>
+
+              {item.badge && (
+                <span className="mb-4 inline-block rounded-full border border-amber-400/40 bg-amber-400/10 px-3 py-1 text-xs font-semibold text-amber-300">
+                  {item.badge}
+                </span>
+              )}
 
               <p className="leading-7 text-slate-400">
                 {item.description}
