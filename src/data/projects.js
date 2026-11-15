@@ -142,24 +142,26 @@ export const projects = [
     status: "In progress",
 
     description:
-      "A question-answering assistant over WHO immunisation guidelines and AI-in-medical-device guidance — built with the same rigour as my vision projects: every answer must cite its source, and the system is measured, not just demoed.",
+      "A question-answering assistant over 10 official WHO, FDA and EU documents on immunisation and AI medical devices. Every answer must cite its page, it must refuse when the sources don't say, and retrieval is measured before any LLM is added.",
 
     results: [
-      "Chunking + embeddings + vector store with hybrid search and a reranker",
-      "Answers with citations; refuses when the answer is not in the sources",
-      "Evaluation harness: faithfulness, answer relevance, context recall, paraphrase robustness",
+      "Done: page-level ingestion of 10 WHO, FDA and EU documents (240 pages), tested in CI",
+      "Finding: WHO papers print English and French side by side, so French was ~50% of the extracted text; fixed by detecting the column gap and keeping English only",
+      "Next: chunking → embeddings → retrieval evaluation on hand-written gold questions (recall@k, MRR)",
+      "Then: answers with page citations and refusal, hybrid search + reranker, faithfulness evaluation with a separate judge model",
     ],
 
     technologies: [
       "Python",
-      "LLMs",
+      "PyMuPDF",
+      "Pytest",
+      "GitHub Actions",
       "Embeddings",
       "FAISS / Chroma",
-      "Reranking",
-      "RAGAS",
+      "LLM-as-judge",
     ],
 
-    github: "",
+    github: "https://github.com/shubhampandey97/healthcare-rag",
     demo: "",
   },
 ];

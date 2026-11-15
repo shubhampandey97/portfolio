@@ -88,7 +88,7 @@ export default function ProjectCard({ project }) {
                   <FaCheckCircle className="text-cyan-400" />
                 )}
                 <h4 className="font-semibold text-white">
-                  {inProgress ? "What I'm building" : "Key results"}
+                  {inProgress ? "Progress & plan" : "Key results"}
                 </h4>
               </div>
 
