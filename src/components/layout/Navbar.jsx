@@ -9,7 +9,6 @@ const navLinks = [
   { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
-  { name: "Research", href: "#research" },
   { name: "Certificates", href: "#certifications" },
   { name: "Contact", href: "#contact" },
 ];
@@ -54,7 +53,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-[1700px] items-center justify-between px-10 xl:px-16">
+      <div className="mx-auto flex h-20 max-w-[1700px] items-center justify-between px-5 sm:px-10 xl:px-16">
         {/* Logo */}
         <a
           href="#home"
@@ -63,16 +62,16 @@ export default function Navbar() {
           <div className="overflow-hidden rounded-full border border-cyan-400/30 shadow-lg shadow-cyan-500/20 transition group-hover:scale-105">
             <img
               src={logo}
-              alt="Logo"
+              alt="Shubham Pandey logo"
               className="h-12 w-12 object-cover"
             />
           </div>
 
           <div>
-            <h1 className="text-xl font-bold text-white">
+            <p className="text-xl font-bold text-white">
               Shubham
               <span className="text-cyan-400"> Pandey</span>
-            </h1>
+            </p>
 
             <p className="text-xs tracking-widest text-slate-400 uppercase">
               ML Engineer | Data Scientist
@@ -103,6 +102,7 @@ export default function Navbar() {
             href="https://github.com/shubhampandey97"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 bg-slate-900/60 text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:text-cyan-400"
           >
             <FaGithub size={18} />
@@ -112,6 +112,7 @@ export default function Navbar() {
             href="https://www.linkedin.com/in/shubham-pandey-4092781a6/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 bg-slate-900/60 text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:text-cyan-400"
           >
             <FaLinkedin size={18} />
@@ -128,6 +129,8 @@ export default function Navbar() {
         {/* Mobile Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
           className="rounded-lg border border-slate-700 p-2 text-white lg:hidden"
         >
           {isOpen ? <HiX size={26} /> : <HiMenuAlt3 size={26} />}
@@ -161,6 +164,7 @@ export default function Navbar() {
               href="https://github.com/shubhampandey97"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub"
               className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 text-slate-300 hover:border-cyan-400 hover:text-cyan-400"
             >
               <FaGithub />
@@ -170,6 +174,7 @@ export default function Navbar() {
               href="https://www.linkedin.com/in/shubham-pandey-4092781a6/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
               className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 text-slate-300 hover:border-cyan-400 hover:text-cyan-400"
             >
               <FaLinkedin />
