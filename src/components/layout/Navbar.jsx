@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.webp";
 
 const navLinks = [
   { name: "Home", href: "#home" },

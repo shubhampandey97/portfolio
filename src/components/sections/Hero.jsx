@@ -7,7 +7,7 @@ import {
   FaDownload,
 } from "react-icons/fa";
 
-import profile from "../../assets/profile.png";
+import profile from "../../assets/profile.webp";
 
 const stats = [
   {
@@ -181,6 +181,9 @@ export default function Hero() {
               <img
                 src={profile}
                 alt="Shubham Pandey"
+                width={800}
+                height={1009}
+                fetchPriority="high"
                 className="h-[310px] w-[310px] rounded-full object-cover object-top shadow-[0_0_60px_rgba(34,211,238,0.35)] lg:h-[370px] lg:w-[370px] xl:h-[400px] xl:w-[400px]"
               />
             </div>
