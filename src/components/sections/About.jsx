@@ -137,7 +137,7 @@ export default function About() {
 
                   <div>
                     <h4 className="text-xl font-semibold text-white">
-                      Software Developer
+                      IT Executive — Software Development & Reporting
                     </h4>
 
                     <p className="text-slate-400">

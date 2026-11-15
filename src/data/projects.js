@@ -74,6 +74,39 @@ export const projects = [
   },
 
   {
+    id: 5,
+    title: "Healthcare RAG with Evaluation",
+    image: null,
+    category: "Generative AI",
+    duration: "2026",
+    status: "In progress",
+
+    description:
+      "A question-answering assistant over 10 official WHO, FDA and EU documents on immunisation and AI medical devices. Every answer must cite its page, it must refuse when the sources don't say, and retrieval is measured before any LLM is added.",
+
+    results: [
+      "Done: page-level ingestion of 10 WHO, FDA and EU documents (240 pages), tested in CI",
+      "Finding: WHO papers print English and French side by side, so French was ~50% of the extracted text; fixed by detecting the column gap and keeping English only",
+      "Next: chunking → embeddings → retrieval evaluation on hand-written gold questions (recall@k, MRR)",
+      "Then: answers with page citations and refusal, hybrid search + reranker, faithfulness evaluation with a separate judge model",
+    ],
+
+    technologies: [
+      "Python",
+      "PyMuPDF",
+      "Pytest",
+      "GitHub Actions",
+      "Embeddings",
+      "FAISS",
+      "BM25",
+      "LLM-as-judge",
+    ],
+
+    github: "https://github.com/shubhampandey97/healthcare-rag",
+    demo: "",
+  },
+
+  {
     id: 3,
     title: "Delivery Time Prediction — End-to-End ML Pipeline",
     image: deliveryPrediction,
@@ -85,7 +118,7 @@ export const projects = [
       "Predicts Amazon delivery times from order, distance and timing data. Built as a reproducible pipeline with feature engineering, model comparison, tuning, experiment tracking and explainability.",
 
     results: [
-      "XGBoost + GridSearchCV: test RMSE ≈ 22.3, stable 5-fold CV (22.3 ± 0.18)",
+      "Tuned XGBoost: test RMSE 22.3 min (5-fold CV 22.3 ± 0.18) vs 33.2 min for linear regression",
       "Compared Linear Regression, Random Forest, Gradient Boosting and XGBoost",
       "Haversine distance, preparation-time and time-of-day features; IQR outlier handling",
       "MLflow experiment tracking, SHAP explanations, Streamlit app",
@@ -101,6 +134,29 @@ export const projects = [
     ],
 
     github: "https://github.com/shubhampandey97/amazon-delivery-prediction",
+    demo: "",
+  },
+
+  {
+    id: 6,
+    title: "Data Warehouse & Data Marts — SQL Data Engineering",
+    image: null,
+    category: "Data Engineering",
+    duration: "2026 · course project",
+    status: "Completed",
+
+    description:
+      "An ETL pipeline that takes raw job-posting CSVs from Google Cloud Storage into a DuckDB star-schema warehouse, then builds analytical data marts on top. Built while working through a SQL for Data Engineering course.",
+
+    results: [
+      "Star schema with fact, dimension and bridge tables",
+      "Flat, skills and priority-role data marts with incremental MERGE updates",
+      "Analytical SQL with CTEs and window functions",
+    ],
+
+    technologies: ["SQL", "DuckDB", "Google Cloud Storage", "ETL", "Star Schema"],
+
+    github: "https://github.com/shubhampandey97/SQL_Data_Engineering_Projects",
     demo: "",
   },
 
@@ -130,38 +186,6 @@ export const projects = [
     ],
 
     github: "https://github.com/shubhampandey97/npl-object-retrieval",
-    demo: "",
-  },
-
-  {
-    id: 5,
-    title: "Healthcare RAG with Evaluation",
-    image: null,
-    category: "Generative AI",
-    duration: "2026",
-    status: "In progress",
-
-    description:
-      "A question-answering assistant over 10 official WHO, FDA and EU documents on immunisation and AI medical devices. Every answer must cite its page, it must refuse when the sources don't say, and retrieval is measured before any LLM is added.",
-
-    results: [
-      "Done: page-level ingestion of 10 WHO, FDA and EU documents (240 pages), tested in CI",
-      "Finding: WHO papers print English and French side by side, so French was ~50% of the extracted text; fixed by detecting the column gap and keeping English only",
-      "Next: chunking → embeddings → retrieval evaluation on hand-written gold questions (recall@k, MRR)",
-      "Then: answers with page citations and refusal, hybrid search + reranker, faithfulness evaluation with a separate judge model",
-    ],
-
-    technologies: [
-      "Python",
-      "PyMuPDF",
-      "Pytest",
-      "GitHub Actions",
-      "Embeddings",
-      "FAISS / Chroma",
-      "LLM-as-judge",
-    ],
-
-    github: "https://github.com/shubhampandey97/healthcare-rag",
     demo: "",
   },
 ];

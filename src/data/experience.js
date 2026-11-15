@@ -1,7 +1,7 @@
 export const experiences = [
   {
     company: "Sugmya Finance Pvt. Ltd.",
-    role: "Software Developer",
+    role: "IT Executive (Software Development & Reporting)",
 
     startDate: "May 2024",
     endDate: "Apr 2026",
@@ -11,41 +11,33 @@ export const experiences = [
 
     techStack: [
       "Python",
-      "FastAPI",
       "Django",
+      "FastAPI",
       "SQL",
       "Oracle",
       "PostgreSQL",
-      "Power BI",
+      "ETL",
       "Git",
     ],
 
     summary:
-      "Worked on backend development, reporting automation, database solutions, and business intelligence systems supporting lending operations.",
+      "Built the company's first in-house reporting software for lending operations, replacing reports downloaded from a leased third-party system and rebuilt by hand in Excel.",
 
     keyContributions: [
-      "Automated financial reporting workflows.",
-      "Developed backend APIs using FastAPI and Django.",
-      "Built SQL reporting and analytics solutions.",
-      "Collaborated with cross-functional business teams.",
+      "Owned requirements, database design, APIs, deployment and support.",
+      "Built backend services in Python with Django and FastAPI.",
+      "Designed ETL pipelines on Oracle and PostgreSQL.",
+      "Worked directly with finance and branch teams.",
     ],
 
     achievements: [
-      "Developed and maintained FastAPI and Django applications serving lending operations across multiple business functions.",
+      "Built the company's first in-house reporting software in Python (Django, FastAPI) on Oracle and PostgreSQL.",
 
-      "Automated MIS and reporting workflows, reducing manual effort by approximately 40%.",
+      "Replaced reports that were downloaded from a leased third-party system and rebuilt by hand in Excel.",
 
-      "Designed SQL-based analytics solutions using Oracle and PostgreSQL to support business decision-making.",
+      "Automated loan disbursement, collections/EMI, overdue/NPA and branch MIS reports.",
 
-      "Built backend APIs and internal automation tools using Python, FastAPI, and Django.",
-
-      "Created dashboards and automated reports for finance and business operations.",
-
-      "Worked closely with business stakeholders to improve operational efficiency through automation and data-driven reporting.",
-
-      "Maintained production databases and optimized SQL queries for faster reporting.",
-
-      "Used Git for version control and collaborated within the software development lifecycle.",
+      "Built ETL pipelines that pull, clean and reconcile source data before reporting.",
     ],
   },
 ];

@@ -5,9 +5,8 @@ import {
   FaEye,
   FaRobot,
   FaServer,
-  FaDocker,
   FaGitAlt,
-  FaAws,
+  FaCloud,
   FaLinux,
   FaChartBar,
   FaCode,
@@ -64,7 +63,7 @@ export const skills = [
       { name: "LLMs", icon: FaRobot },
       { name: "RAG", icon: FaRobot },
       { name: "Embeddings", icon: FaRobot },
-      { name: "Vector Search", icon: FaRobot },
+      { name: "FAISS / BM25", icon: FaRobot },
       { name: "LLM Evaluation", icon: FaRobot },
       { name: "Prompt Engineering", icon: FaRobot },
       { name: "Hugging Face", icon: FaRobot },
@@ -83,6 +82,7 @@ export const skills = [
       { name: "PostgreSQL", icon: FaDatabase },
       { name: "Oracle", icon: FaDatabase },
       { name: "MySQL", icon: FaDatabase },
+      { name: "DuckDB", icon: FaDatabase },
     ],
   },
 
@@ -107,14 +107,13 @@ export const skills = [
       { name: "GitHub Actions CI", icon: FaGitAlt },
       { name: "Streamlit", icon: FaServer },
       { name: "Git & GitHub", icon: FaGitAlt },
-      { name: "Docker", icon: FaDocker },
     ],
   },
 
   {
     title: "Cloud & Tools",
     items: [
-      { name: "AWS (EC2, S3)", icon: FaAws },
+      { name: "Google Cloud Storage", icon: FaCloud },
       { name: "Kaggle GPUs", icon: FaCode },
       { name: "Linux", icon: FaLinux },
       { name: "VS Code", icon: FaCode },

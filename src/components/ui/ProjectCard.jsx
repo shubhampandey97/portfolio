@@ -6,6 +6,7 @@ import {
   FaCheckCircle,
   FaTools,
   FaRobot,
+  FaDatabase,
 } from "react-icons/fa";
 
 import GlassCard from "./GlassCard";
@@ -38,7 +39,11 @@ export default function ProjectCard({ project }) {
             />
           ) : (
             <div className="flex h-56 w-full items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-cyan-950">
-              <FaRobot className="text-7xl text-cyan-400/60" />
+              {project.category === "Generative AI" ? (
+                <FaRobot className="text-7xl text-cyan-400/60" />
+              ) : (
+                <FaDatabase className="text-7xl text-cyan-400/60" />
+              )}
             </div>
           )}
 
